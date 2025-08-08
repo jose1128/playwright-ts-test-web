@@ -1,22 +1,13 @@
 import { Locator, Page } from '@playwright/test';
 
 export class HomePage {
-    private readonly homeUserButton: Locator
-    private readonly createAccountButton: Locator
-    private page: Page;
+    readonly homeUserButton: Locator
+    readonly createAccountButton: Locator
+    readonly userNameText: Locator
 
     constructor(page: Page) {
-        this.page = page;
-        this.homeUserButton = this.page.locator('#menuUser');
-        this.createAccountButton = this.page.getByText('CREATE NEW ACCOUNT');
-    }
-
-    async navigate(url: string): Promise<void> {
-        await this.page.goto(url);
-    }
-
-    async navigateToRegisterAccount(): Promise<void> {
-        await this.homeUserButton.click();
-        await this.createAccountButton.click();
+        this.homeUserButton = page.locator('#menuUser');
+        this.createAccountButton = page.getByText('CREATE NEW ACCOUNT');
+        this.userNameText = page.locator('span[class="hi-user containMiniTitle ng-binding"]');
     }
 }

@@ -10,15 +10,17 @@ setDefaultTimeout(60 * 1000);
 
 BeforeAll(async () => {
   const browserName = process.env.BROWSER || 'chromium';
+  const isHeadless = process.env.HEADLESS === 'false' ? false : true;
+
   switch (browserName) {
     case 'firefox':
-      browser = await firefox.launch({ headless: false });
+      browser = await firefox.launch({ headless: isHeadless });
       break;
     case 'webkit':
-      browser = await webkit.launch({ headless: false });
+      browser = await webkit.launch({ headless: isHeadless });
       break;
     default:
-      browser = await chromium.launch({ headless: false });
+      browser = await chromium.launch({ headless: isHeadless });
   }
   console.log('Launching browser...');
 });
