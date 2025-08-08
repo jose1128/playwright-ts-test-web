@@ -1,0 +1,21 @@
+{
+  "name": "poc-playwright",
+  "version": "1.0.0",
+  "description": "Playwright BDD framework with Cucumber and POM",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cucumber-js --require src/test/steps/*.ts --require-module ts-node/register src/test/features/**/*.feature"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.1.0",
+    "@faker-js/faker": "^9.9.0",
+    "@playwright/test": "^1.54.1",
+    "@types/node": "^24.1.0",
+    "cucumber-html-reporter": "^5.5.0",
+    "faker": "^5.5.3",
+    "ts-node": "^10.9.2"
+  }
+}
